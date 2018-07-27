@@ -1,5 +1,6 @@
 import {Recipe} from './recipe.model';
 import {Incredient} from '../shared/incredient.model';
+import {EventEmitter} from '@angular/core';
 
 export class RecipeService {
   private recipes: Recipe[] = [
@@ -16,6 +17,8 @@ export class RecipeService {
     new Recipe('Salat mit Tomaten', 'Gesunder Salat', 'https://images.ichkoche.at/data/image/variations/365x283/1/rucola-tomaten-salat-img-1309.jpg', [] ),
     new Recipe('Toast Spezial', 'ein feines Toast', 'https://images.ichkoche.at/data/image/variations/496x384/5/default-img-43099.jpg', [] ),
   ];
+
+  recipeSelected = new EventEmitter<Recipe>();  // Emmiter Object definieren und definieren was ich übergeben will! Rufe dies in recipe-item auf!
 
   getRecipes() {
     return this.recipes;

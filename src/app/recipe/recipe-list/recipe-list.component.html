@@ -8,7 +8,7 @@
   <div class="col-xs-12">
     <ul class="list-group">
       <!-- 2. recipeSelected ...empfange daten von recipe-item und bekomme diese in $event übergeben -->
-      <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" (recipeSelected)="onSelected($event)"></app-recipe-item>
+      <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
     </ul>
   </div>
 </div>
