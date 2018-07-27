@@ -1,3 +1,5 @@
+import {Incredient} from '../shared/incredient.model';
+
 export class Recipe {
   /*
   public name: string;
@@ -9,6 +11,10 @@ export class Recipe {
     this.imagePath = imagePath;
   }
   */
-  constructor(public name: string, public description: string, public imagePath: string) {
+  constructor(public name: string,
+              public description: string,
+              public imagePath: string,
+              public incredients: Incredient[]
+  ) {
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Incredient } from '../shared/incredient.model';
 
 @Component({
   selector: 'app-shopping-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ShoppingListComponent implements OnInit {
+  incrediants: Incredient[] = [];
 
   constructor() { }
 
