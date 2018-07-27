@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Incredient } from '../shared/incredient.model';
+import {ShoppingListService} from './shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -7,11 +8,12 @@ import { Incredient } from '../shared/incredient.model';
   styles: []
 })
 export class ShoppingListComponent implements OnInit {
-  incrediants: Incredient[] = [];
+  ingredients: Incredient[] = [];
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {
+    this.ingredients = this.shoppingListService.getIngredients();
   }
 
 }

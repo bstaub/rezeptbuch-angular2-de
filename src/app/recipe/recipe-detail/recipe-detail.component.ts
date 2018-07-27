@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../recipe.model';
 import {RecipeService} from '../recipe.service';
+import {ShoppingListService} from '../../shopping-list/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -10,13 +11,17 @@ import {RecipeService} from '../recipe.service';
 export class RecipeDetailComponent implements OnInit {
   selectedRecipe: Recipe;
 
-  constructor(private recipeService: RecipeService) {
+  constructor(private recipeService: RecipeService, private shoppingListServce: ShoppingListService) {
   }
 
   ngOnInit() {
     this.recipeService.recipeSelected.subscribe(
       (recipe: Recipe) => this.selectedRecipe = recipe  // wenn immer ich ein Rezept recipe bekomme,,
     );
+  }
+
+  onAddToList() {
+    this.shoppingListServce.addIncredients(this.selectedRecipe.incredients);
   }
 
 }
