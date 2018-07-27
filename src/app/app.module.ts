@@ -10,9 +10,10 @@ import {RecipeDetailComponent} from './recipe/recipe-detail/recipe-detail.compon
 import {RecipeListComponent} from './recipe/recipe-list/recipe-list.component';
 import {ShoppingListAddComponent} from './shopping-list/shopping-list-add.component';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
-import {MyRouting} from './app.routing';
-import { RecipeStartComponent } from './recipe/recipe-start.component';
-import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
+
+import {RecipeStartComponent} from './recipe/recipe-start.component';
+import {RecipeEditComponent} from './recipe/recipe-edit/recipe-edit.component';
+import {Routing} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component'
   ],
   imports: [
     BrowserModule,
-    MyRouting
+    Routing
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]

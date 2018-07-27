@@ -25,4 +25,8 @@ export class RecipeService {
     return this.recipes[id];
   }
 
+  deleteRecipe(id: number) {
+    this.recipes.splice(id, 1);
+  }
+
 }

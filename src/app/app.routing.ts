@@ -11,4 +11,4 @@ const APP_ROUTES: Routes = [
   {path: '**', redirectTo: '/'},  // default Route, könnte auch 404 Seite sein, muss am Schluss aufgerufen werden
 ];
 
-export const MyRouting = RouterModule.forRoot(APP_ROUTES);
+export const Routing = RouterModule.forRoot(APP_ROUTES);
