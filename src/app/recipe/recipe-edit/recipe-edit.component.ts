@@ -8,7 +8,7 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
   styles: []
 })
 export class RecipeEditComponent implements OnInit {
-  recipeForm: FormGroup;
+  recipeForm: FormGroup;  // reactive form, wird in html ==> <form [formGroup]="recipeForm"> gebunden!
 
   constructor(private recipeService: RecipeService) { }
 

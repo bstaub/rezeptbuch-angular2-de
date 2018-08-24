@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form>
+    <form [formGroup]="recipeForm">
       <div class="row">
         <div class="col-xs-12">
           <button
@@ -16,7 +16,9 @@
             <input
               type="text"
               id="name"
-              class="form-control">
+              class="form-control"
+              formControlName="name"
+            >
           </div>
         </div>
       </div>
@@ -27,7 +29,9 @@
             <input
               type="text"
               id="image-url"
-              class="form-control">
+              class="form-control"
+              formControlName="imagePath"
+            >
           </div>
         </div>
       </div>
@@ -46,25 +50,31 @@
               type="text"
               id="content"
               rows="6"
-              class="form-control"></textarea>
+              class="form-control"
+              formControlName="description"
+            ></textarea>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <ul class="list-group">
+          <ul class="list-group" formArrayName="ingredients">  <!-- damit sich angular auf subliste der FormControl bezieht -->
             <div
-              class="row">
-              <div>
+              class="row"
+              *ngFor="let ingredient of recipeForm.get('ingredients').controls; let i = index"
+              >
+              <div formGroupName="{{ i }}">
                 <div class="col-sm-5">
                   <input
                     type="text"
-                    class="form-control">
+                    class="form-control"
+                    formControlName="name">
                 </div>
                 <div class="col-sm-5">
                   <input
                     type="text"
-                    class="form-control">
+                    class="form-control"
+                    formControlName="amount">
                 </div>
                 <div class="col-sm-2">
                   <button class="btn btn-danger">X</button>
