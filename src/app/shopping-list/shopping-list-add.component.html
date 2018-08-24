@@ -8,7 +8,7 @@
             type="text"
             id="itemName"
             class="form-control"
-            ngModel
+            [ngModel]="selectedIncredient.name"
             required
             name="name">
         </div>
@@ -18,14 +18,14 @@
             type="text"
             id="itemAmount"
             class="form-control"
-            ngModel
+            [ngModel]="selectedIncredient.amount"
             required
             name="amount">
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success">Hinzufügen</button>
+          <button type="submit" class="btn btn-success">Speichern</button>
           <button type="button" class="btn btn-danger">Löschen</button>
           <button type="button" class="btn btn-primary" (click)="onClear(f)">Zurücksetzen</button>
         </div>

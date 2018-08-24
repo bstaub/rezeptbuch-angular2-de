@@ -18,4 +18,10 @@ export class ShoppingListService {
   deleteIncredient(incredient: Incredient) {
     this.incredients.splice(this.incredients.indexOf(incredient), 1)
   }
+
+  editIncredient(oldIncredient: Incredient, newIncredient: Incredient) {
+    this.incredients[this.incredients.indexOf(oldIncredient)] = newIncredient;
+  }
+
+
 }
