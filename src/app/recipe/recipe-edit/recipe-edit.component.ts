@@ -22,14 +22,26 @@ export class RecipeEditComponent implements OnInit {
         //   'name': new FormControl(null, Validators.required),
         //   'amount': new FormControl(null, Validators.required),
         // })
-      ]),
-
+      ])
     });
   }
 
   onSubmit() {
     const newRecipe = this.recipeForm.value;  // auf values zugreifen (recipe modell muss dann gleich wie reactive form values benannt sein, oder mit new erstellen
     this.recipeService.addRecipe(newRecipe);
+  }
+
+  onAddIngredientControl(name: string, amount: string) {
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        'name': new FormControl(name, Validators.required),
+        'amount': new FormControl(amount, Validators.required)
+      })
+    );
+  }
+
+  onRemoveIngredientControl(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);  // removeAt ist Angular2 methode
   }
 
 }

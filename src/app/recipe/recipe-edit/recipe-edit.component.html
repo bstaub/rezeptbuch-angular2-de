@@ -78,7 +78,7 @@
                     formControlName="amount">
                 </div>
                 <div class="col-sm-2">
-                  <button class="btn btn-danger">X</button>
+                  <button class="btn btn-danger" (click)="onRemoveIngredientControl(i)">X</button>
                 </div>
               </div>
               <br><br>
@@ -93,12 +93,14 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="form-group row">
-      <div class="col-md-5"><input type="text" class="form-control"></div>
-      <div class="col-md-5"><input type="text" class="form-control"></div>
+      <div class="col-md-5"><input type="text" class="form-control" #itemName></div>
+      <div class="col-md-5"><input type="text" class="form-control" #itemAmount></div>
       <div class="col-md-2">
         <button
           type="button"
-          class="btn btn-primary">+
+          class="btn btn-primary"
+          (click)="onAddIngredientControl(itemName.value, itemAmount.value)"
+          >+
         </button>
       </div>
     </div>
