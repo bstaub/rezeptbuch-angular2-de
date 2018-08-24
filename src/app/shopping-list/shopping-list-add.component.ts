@@ -18,6 +18,11 @@ export class ShoppingListAddComponent implements OnInit {
   onSubmit(form: NgForm) {
     const newIngredient = new Incredient(form.value.name, form.value.amount);
     this.sls.addIngredient( newIngredient );
+    this.onClear(form);
+  }
+
+  onClear(form: NgForm) {
+    form.resetForm();
   }
 
 }
