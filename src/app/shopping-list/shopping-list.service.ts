@@ -10,4 +10,12 @@ export class ShoppingListService {
   addIncredients(incredients: Incredient[]) {
     Array.prototype.push.apply(this.incredients, incredients);  // auf Klasse this.incrediants anwenden und incredients reinpushen
   }
+
+  addIngredient(ingredient: Incredient) {
+    this.incredients.push(ingredient);
+  }
+
+  deleteIncredient(incredient: Incredient) {
+    this.incredients.splice(this.incredients.indexOf(incredient), 1)
+  }
 }
