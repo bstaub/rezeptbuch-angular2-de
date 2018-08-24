@@ -49,4 +49,9 @@ export class ShoppingListAddComponent implements OnInit, OnChanges {
     }
   }
 
+  onDelete(form: NgForm) {
+    this.sls.deleteIncredient(this.selectedIncredient);
+    this.onClear(form);
+  }
+
 }
