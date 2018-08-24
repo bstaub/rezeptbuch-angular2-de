@@ -6,7 +6,7 @@
           <button
             type="submit"
             class="btn btn-success" [disabled]="!recipeForm.valid">Speichern</button>
-          <a class="btn btn-danger">Abbrechen</a>
+          <a class="btn btn-danger" (click)="onCancel">Abbrechen</a>
         </div>
       </div>
       <div class="row">
@@ -59,11 +59,10 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <ul class="list-group" formArrayName="ingredients">  <!-- damit sich angular auf subliste der FormControl bezieht -->
+          <ul class="list-group" formArrayName="incredients">  <!-- damit sich angular auf subliste der FormControl bezieht -->
             <div
               class="row"
-              *ngFor="let ingredient of recipeForm.get('ingredients').controls; let i = index"
-              >
+              *ngFor="let incredient of recipeForm.get('incredients').controls; let i = index">
               <div formGroupName="{{ i }}">
                 <div class="col-sm-5">
                   <input
