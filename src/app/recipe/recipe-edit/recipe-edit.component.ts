@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {RecipeService} from '../recipe.service';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class RecipeEditComponent implements OnInit {
+  recipeForm: FormGroup;
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipeForm = new FormGroup({
+      'name': new FormControl(null, Validators.required),
+      'imagePath': new FormControl(null, Validators.required),
+      'description': new FormControl(null, Validators.required),
+      'ingredients': new FormArray([
+        // new FormGroup({
+        //   'name': new FormControl(null, Validators.required),
+        //   'amount': new FormControl(null, Validators.required),
+        // })
+      ]),
+
+    });
   }
 
 }
