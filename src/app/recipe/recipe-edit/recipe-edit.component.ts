@@ -27,4 +27,9 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    const newRecipe = this.recipeForm.value;  // auf values zugreifen (recipe modell muss dann gleich wie reactive form values benannt sein, oder mit new erstellen
+    this.recipeService.addRecipe(newRecipe);
+  }
+
 }

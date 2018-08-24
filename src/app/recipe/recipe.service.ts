@@ -29,4 +29,8 @@ export class RecipeService {
     this.recipes.splice(id, 1);
   }
 
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
 }
