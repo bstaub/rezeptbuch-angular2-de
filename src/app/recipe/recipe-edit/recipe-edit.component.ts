@@ -33,17 +33,38 @@ export class RecipeEditComponent implements OnInit {
       }
     );
 
+    let recipeName = null;
+    let recipeImagePath = null;
+    let recipeDescription = null;
+    let recipeIngredients = new FormArray([]);
+
+    if (!this.isNew) {
+      if (this.recipe.hasOwnProperty('incredients')) {
+        for (const incredient of this.recipe.incredients) {
+          recipeIngredients.push(
+            new FormGroup({
+              'name': new FormControl(incredient.name, Validators.required),
+              'amount': new FormControl(incredient.amount, Validators.required)
+            })
+          );
+        }
+      }
+      recipeName = this.recipe.name;
+      recipeImagePath = this.recipe.imagePath;
+      recipeDescription = this.recipe.description;
+    }
 
     this.recipeForm = new FormGroup({
-      'name': new FormControl(null, Validators.required),
-      'imagePath': new FormControl(null, Validators.required),
-      'description': new FormControl(null, Validators.required),
-      'incredients': new FormArray([
-        // new FormGroup({
-        //   'name': new FormControl(null, Validators.required),
-        //   'amount': new FormControl(null, Validators.required),
-        // })
-      ])
+      'name': new FormControl(recipeName, Validators.required),
+      'imagePath': new FormControl(recipeImagePath, Validators.required),
+      'description': new FormControl(recipeDescription, Validators.required),
+      'incredients': recipeIngredients
+      // 'incredients': new FormArray([
+      //   // new FormGroup({
+      //   //   'name': new FormControl(null, Validators.required),
+      //   //   'amount': new FormControl(null, Validators.required),
+      //   // })
+      // ])
     });
   }
 
