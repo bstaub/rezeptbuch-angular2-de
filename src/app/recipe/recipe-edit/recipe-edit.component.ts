@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {RecipeService} from '../recipe.service';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -10,7 +10,7 @@ import {Recipe} from '../recipe.model';
   templateUrl: './recipe-edit.component.html',
   styles: []
 })
-export class RecipeEditComponent implements OnInit {
+export class RecipeEditComponent implements OnInit, OnDestroy {
   recipeForm: FormGroup;  // reactive form, wird in html ==> <form [formGroup]="recipeForm"> gebunden!
   private recipeIndex: number;
   private subscription: Subscription;
@@ -70,7 +70,11 @@ export class RecipeEditComponent implements OnInit {
 
   onSubmit() {
     const newRecipe = this.recipeForm.value;  // auf values zugreifen (recipe modell muss dann gleich wie reactive form values benannt sein, oder mit new erstellen
-    this.recipeService.addRecipe(newRecipe);
+    if (this.isNew) {
+      this.recipeService.addRecipe(newRecipe);
+    } else {
+      this.recipeService.editRecipe(this.recipe, newRecipe);
+    }
     this.onNavigateBack();
   }
 
@@ -95,4 +99,7 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('incredients')).removeAt(index);  // removeAt ist Angular2 methode
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
