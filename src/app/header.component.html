@@ -2,6 +2,25 @@
   <ul class="nav nav-pills">
     <li role="presentation" routerLinkActive="active"><a [routerLink]="['/rezepte']">Rezeptbuch</a></li>
     <li role="presentation" routerLinkActive="active"><a [routerLink]="['/einkaufsliste']">Einkaufsliste</a></li>
+    <li>
+      <div class="dropdown appDropdown">
+        <button class="btn btn-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                aria-haspopup="true"
+                aria-expanded="true">
+                Dropdown
+                <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">Action</a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#">Separated link</a></li>
+        </ul>
+      </div>
+    </li>
   </ul>
 </header>
 
